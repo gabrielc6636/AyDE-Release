@@ -1,0 +1,64 @@
+1) Descargar PHPMailer:
+https://github.com/PHPMailer/PHPMailer
+Poner opcion descargar ZIP. Descargara un archivo llamado: PHPMailer-master.zip
+
+Ir a la carpeta donde esta el proyecto, en esta prueba se llama:
+C:\xampp\htdocs\cargahoras
+
+Crear una carpeta llamada phpmailer
+Abrir el ZIP, hacer doble clic sobre la carpeta comprimida "PHPMailer-master"
+Descomprimir todo el contenido del dentro de la carpeta que creamos
+
+-------------------------------------------------------------------------------
+2) Copiar los archivos de automatizacion y envio de mails. Son 4:
+
+automaticoJavier.html
+automaticoSergio.html
+
+Dentro de automaticoJavier.html y automaticoSergio.html hay que configurar los siguientes datos:
+
+//Configuracion de envio de mail;
+			var diaMail = 01;
+			var horaMail = 08;
+			var minutosMail = 13;
+			var segundosMail = 00;
+			var rutaProyecto = "http://localhost/cargahoras/";
+			var destinatarioMail = "sergio.php";
+			var nombreDestinatario = "Sergio (untref_ayde_tp@googlegroups.com)"
+
+Se trata del dia, hora, minutos y segundos en los que saldra el mail.
+La ruta del proyecto es donde finalmente quedara guardado este proyecto
+La variable destinatarioMail llama al archivo PHP que enviara el correo, ya configurado con la direccion de esa persona
+La variable nombreDestinatario es unicamente para que figure visualmente en la pagina que cuenta el tiempo
+
+
+Estos archivos verifican el mes actual y llaman a:
+javier0.php, javier1.php, etc.
+sergio0.php, sergio1.php, etc.
+El mes 0 es Enero, 1 Febrero, etc.
+Perdon por no haber hecho algo recursivo, pero a esta hora ya no me da mas la cabeza.
+
+Dentro de javierX.php y sergioX.php hay que cambiar el mail. Ahora esta puesto que mande a nuestra cuenta para probar.
+Ojo que si ponen la cuenta del grupo el mail sale, no hacer spam.
+Hay que cambiar aca (en cada archivo):
+
+//Destinatario de mensaje
+$mail->addAddress('rcp.desarrollo@gmail.com', 'Javier');
+
+-------------------------------------------------------------------------------
+
+3) Los reportes que le llegan al usuario
+
+Dentro de los archivos reporteSergioX.html y reporteJavierX.html (van del 0 al 11, Enero a Dic) hay una unica linea:
+
+<a> Reporte de Enero <a href="url">http://localhost/cargahoras/reporte.php?mes=1&submit=ok</a>
+
+En medio de los tags <a href="url"></a> esta el link que se le manda por mail y al cual accederan.
+Como el proyecto unicamente quedara en una intranet, sin ser publicado a internet, solo podran abrir los links dentro de la red ya que la direccion apunta a localhost, no a ninguna direccion IP.
+
+MUY IMPORTANTE que en ese link figure el reporte que le tiene que llegar a cada uno.
+Tener en cuenta que corresponde a 1 por mes, segun se indica reporte.php?mes=1&submit=ok
+Tambien es importante tener en cuenta que no se puede restringir esto por usuario, se tiene que poder acceder a estos reportes sin restriccion adicional.
+Si quieren acceder a los reportes logueandose, es posible que funcione bien pero hay que probarlo, lo mas facil es dejar los reportes sin restriccion.
+
+

@@ -1,0 +1,69 @@
+<HTML>
+<HEAD>
+<TITLE>RCP - ENVIO AUTOMATICO DE REPORTES</TITLE>
+ 
+<style type="text/css">
+body {
+    background-image:url('fondo.png');
+}
+</style>
+<script type="text/javascript"
+    src="jquery-1.10.1.min.js"></script>
+<script>
+    $(document).ready(
+            function() {
+                setInterval(function() {
+
+   	                //Configuracion de envio de mail;
+			var d = new Date();
+			var diaMail = 02;
+			var horaMail = 03;
+			var minutosMail = 07;
+			var segundosMail = 00;
+			var rutaProyecto = "http://localhost/cargahoras/";
+			var destinatarioMail = "sergio";
+			var nombreDestinatario = "Sergio (untref_ayde_tp@googlegroups.com)"
+
+			$('#titulo2').text('Esta herramienta fue configurada para enviar automaticamente un e-mail a ' + nombreDestinatario);
+			if (d.getDate() == diaMail && d.getHours() == horaMail && d.getMinutes() == minutosMail && d.getSeconds() == segundosMail) {
+				$('#mostrar3').text('Enviando el mail');
+				if (d.getMonth() == 0){window.open(rutaProyecto + destinatarioMail +"11.php","windowName");}
+				if (d.getMonth() == 1){window.open(rutaProyecto + destinatarioMail +"0.php","windowName");}
+				if (d.getMonth() == 2){window.open(rutaProyecto + destinatarioMail +"1.php","windowName");}
+				if (d.getMonth() == 3){window.open(rutaProyecto + destinatarioMail +"2.php","windowName");}
+				if (d.getMonth() == 4){window.open(rutaProyecto + destinatarioMail +"3.php","windowName");}
+				if (d.getMonth() == 5){window.open(rutaProyecto + destinatarioMail +"4.php","windowName");}
+				if (d.getMonth() == 6){window.open(rutaProyecto + destinatarioMail +"5.php","windowName");}
+				if (d.getMonth() == 7){window.open(rutaProyecto + destinatarioMail +"6.php","windowName");}
+				if (d.getMonth() == 8){window.open(rutaProyecto + destinatarioMail +"7.php","windowName");}
+				if (d.getMonth() == 9){window.open(rutaProyecto + destinatarioMail +"8.php","windowName");}
+				if (d.getMonth() == 10){window.open(rutaProyecto + destinatarioMail +"9.php","windowName");}
+				if (d.getMonth() == 11){window.open(rutaProyecto + destinatarioMail +"10.php","windowName");}
+			}
+			if (d.getDate() == diaMail && d.getHours() == horaMail && d.getMinutes() == minutosMail && d.getSeconds() == segundosMail+10) {
+				$('#mostrar3').text('');
+			}
+                    	$('#mostrar1').text('Fecha actual: ' +  d);
+			$('#mostrar2').text('Mail programado: Cada dia ' +  diaMail + ' a las ' + horaMail + ':' + minutosMail + ':' + segundosMail);
+                	}, 1000);
+            	});
+</script>
+ 
+</HEAD>
+<BODY>
+	<div id="titulo1" align="center">RCP DESARROLLOS</div>
+	<br>
+	<br>
+	<div id="titulo1" align="center"><b>ENVIO AUTOMATICO DE REPORTES</b></div>
+	<br>
+	<div id="titulo2" align="center"></div>
+	<br>
+	<br>
+	<div id="mostrar1" align="center"></div>
+	<br>
+	<div id="mostrar2" align="center"></div>
+	<br>
+	<br>
+	<div id="mostrar3" align="center"></div>
+</BODY>
+</HTML>

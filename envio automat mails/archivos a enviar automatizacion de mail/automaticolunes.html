@@ -1,0 +1,58 @@
+<HTML>
+<HEAD>
+<TITLE>RCP - ENVIO AUTOMATICO DE REPORTES</TITLE>
+ 
+<style type="text/css">
+body {
+    background-image:url('fondo.png');
+}
+</style>
+<script type="text/javascript"
+    src="jquery-1.10.1.min.js"></script>
+<script>
+    $(document).ready(
+            function() {
+                setInterval(function() {
+
+   	                //Configuracion de envio de mail;
+			var d = new Date();
+			var diaMail = 06; //1 es lunes, 2 es martes... 6 es sabado
+			var horaMail = 08;
+			var minutosMail = 39;
+			var segundosMail = 00;
+			var rutaProyecto = "http://localhost/cargahoras/";
+			var destinatarioMail = "desarrolladores";
+			var nombreDestinatario = "Desarrolladores (untref_ayde_tp@googlegroups.com)"
+
+			$('#titulo2').text('Esta herramienta fue configurada para enviar automaticamente un e-mail a ' + nombreDestinatario);
+			if (d.getDay() == diaMail && d.getHours() == horaMail && d.getMinutes() == minutosMail && d.getSeconds() == segundosMail) {
+				$('#mostrar3').text('Enviando el mail');
+				{window.open(rutaProyecto + destinatarioMail +".php","windowName");}
+			}
+			if (d.getDay() == diaMail && d.getHours() == horaMail && d.getMinutes() == minutosMail && d.getSeconds() == segundosMail+10) {
+				$('#mostrar3').text('');
+			}
+                    	$('#mostrar1').text('Fecha actual: ' +  d);
+			$('#mostrar2').text('Mail programado: Cada dia Lunes' + ' a las ' + horaMail + ':' + minutosMail + ':' + segundosMail);
+                	}, 1000);
+            	});
+</script>
+ 
+</HEAD>
+<BODY>
+	<div id="titulo1" align="center">RCP DESARROLLOS</div>
+	<br>
+	<br>
+	<div id="titulo1" align="center"><b>ENVIO AUTOMATICO DE REPORTES</b></div>
+	<br>
+	<div id="titulo2" align="center"></div>
+	<br>
+	<br>
+	<div id="mostrar1" align="center"></div>
+	<br>
+	<div id="mostrar2" align="center"></div>
+	<br>
+	<br>
+	<div id="mostrar3" align="center"></div>
+</BODY>
+</HTML>
